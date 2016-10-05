@@ -1,12 +1,11 @@
-/*
- * Models 
- *
- **/
+"use strict";
 
-var Sequelize = require("sequelize");
-var config = require('./config/config.js').current;
+import Sequelize from 'sequelize';
+import config from './config/index';
 
-var sequelize = new Sequelize(config.database.name, config.database.user, config.database.password, {
+let currentConfig = config.current();
+
+var sequelize = new Sequelize(currentConfig.database.name, currentConfig.database.user, currentConfig.database.password, {
   host: config.database.host,
   dialect: 'mysql',
 
@@ -18,4 +17,11 @@ var sequelize = new Sequelize(config.database.name, config.database.user, config
   
 });
 
-module.exports = sequelize;
+export let User = sequelize.define('user', {
+  username: Sequelize.STRING,
+  password: Sequelize.STRING,
+  name: Sequelize.STRING,
+  email: Sequelize.STRING
+});
+
+export default sequelize;
