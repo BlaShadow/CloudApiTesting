@@ -2,11 +2,5 @@
     "application": {
         "port": 5000,
         "host": "localhost"
-    },
-    "database": {
-        "host": "localhost",
-        "name": "test-cloud-testing-test",
-        "user": "cloud_user_test",
-        "password": ""
     }
 }
